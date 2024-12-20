@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="siixsem_wip_control_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="getDetailCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getDetailCountAk" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getDetailCountV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WIP_NOT_QA_VALIDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDAREA" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="siixsem_wip_control_dbModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="siixsem_wip_control_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="siixsem_wip_control_dbEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="getDetailCount" ReturnType="Collection(siixsem_wip_control_dbModel.getDetailCount_Result)" />
+          <FunctionImport Name="getDetailCountV2" ReturnType="Collection(siixsem_wip_control_dbModel.getDetailCountV2_Result)" />
+          <FunctionImport Name="WIP_NOT_QA_VALIDATE" ReturnType="Collection(siixsem_wip_control_dbModel.WIP_NOT_QA_VALIDATE_Result)">
+          <Parameter Name="IDAREA" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getDetailCountAk" ReturnType="Collection(siixsem_wip_control_dbModel.getDetailCountAk_Result)" />
+        </EntityContainer>
+        <ComplexType Name="getDetailCount_Result">
+          <Property Type="String" Name="ZONE" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="BOX_QTY" Nullable="true" />
+          <Property Type="Int32" Name="MAG_QTY" Nullable="true" />
+          <Property Type="Int32" Name="FINAL_BOX_QTY" Nullable="true" />
+          <Property Type="Int32" Name="DELETE_LABEL" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_QA_QTY" Nullable="true" />
+          <Property Type="Double" Name="QA_VALIDATE__" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_FIN_QTY" Nullable="true" />
+          <Property Type="Double" Name="FIN_VALIDATE__" Nullable="true" />
+          <Property Type="Int32" Name="TOTAL_LABEL_PRINT" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getDetailCountV2_Result">
+          <Property Type="String" Name="ZONE" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="BOX_QTY" Nullable="true" />
+          <Property Type="Int32" Name="MAG_QTY" Nullable="true" />
+          <Property Type="Int32" Name="FINAL_BOX_QTY" Nullable="true" />
+          <Property Type="Int32" Name="DELETE_LABEL" Nullable="true" />
+          <Property Type="Int32" Name="DEL_BOX_LABEL" Nullable="true" />
+          <Property Type="Int32" Name="DEL_FG_BOX_LABEL" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_QA_QTY" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_QA_BOX_QTY" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_QA_FG_BOX_QTY" Nullable="true" />
+          <Property Type="Double" Name="QA_VALIDATE__" Nullable="true" />
+          <Property Type="Double" Name="QA_VALIDATE_Mag__" Nullable="true" />
+          <Property Type="Double" Name="QA_VALIDATE_Box__" Nullable="true" />
+          <Property Type="Double" Name="QA_VALIDATE_FG_Box_" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_FIN_QTY" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_FIN__BOX_QTY" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_FIN_FG_BOX_QTY" Nullable="true" />
+          <Property Type="Double" Name="FIN_VALIDATE__" Nullable="true" />
+          <Property Type="Double" Name="FIN_VALIDATE_Mag__" Nullable="true" />
+          <Property Type="Double" Name="FIN_VALIDATE_Box__" Nullable="true" />
+          <Property Type="Double" Name="FIN_VALIDATE_FG_Box__" Nullable="true" />
+          <Property Type="Int32" Name="TOTAL_LABEL_PRINT" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="WIP_NOT_QA_VALIDATE_Result">
+          <Property Type="String" Name="LOCATOR" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MAGAZINE" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="SCANNED_SERIAL" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MODEL" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ROUTE" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="DJ_GROUP" Nullable="false" MaxLength="40" />
+          <Property Type="Int32" Name="QTY" Nullable="false" />
+          <Property Type="String" Name="SEMIFINISH" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="REVIEW" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="TYPE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="QR" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="QUARANTINE" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="VALIDATED_BY_QA" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="STATUS" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="DELETED" Nullable="false" MaxLength="3" />
+          <Property Type="DateTime" Name="DATE_IN" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="getDetailCountAk_Result">
+          <Property Type="String" Name="ZONE" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="BOX_QTY" Nullable="true" />
+          <Property Type="Int32" Name="MAG_QTY" Nullable="true" />
+          <Property Type="Int32" Name="FINAL_BOX_QTY" Nullable="true" />
+          <Property Type="Int32" Name="DELETE_LABEL" Nullable="true" />
+          <Property Type="Int32" Name="DEL_BOX_LABEL" Nullable="true" />
+          <Property Type="Int32" Name="DEL_FG_BOX_LABEL" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_QA_QTY" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_QA_BOX_QTY" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_QA_FG_BOX_QTY" Nullable="true" />
+          <Property Type="Double" Name="QA_VALIDATE__" Nullable="true" />
+          <Property Type="Double" Name="QA_VALIDATE_Mag__" Nullable="true" />
+          <Property Type="Double" Name="QA_VALIDATE_Box__" Nullable="true" />
+          <Property Type="Double" Name="QA_VALIDATE_FG_Box_" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_FIN_QTY" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_FIN__BOX_QTY" Nullable="true" />
+          <Property Type="Int32" Name="VALIDATE_FIN_FG_BOX_QTY" Nullable="true" />
+          <Property Type="Double" Name="FIN_VALIDATE__" Nullable="true" />
+          <Property Type="Double" Name="FIN_VALIDATE_Mag__" Nullable="true" />
+          <Property Type="Double" Name="FIN_VALIDATE_Box__" Nullable="true" />
+          <Property Type="Double" Name="FIN_VALIDATE_FG_Box__" Nullable="true" />
+          <Property Type="Int32" Name="TOTAL_LABEL_PRINT" Nullable="true" />
+          <Property Type="Int32" Name="IDAREA" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="siixsem_wip_control_dbModelStoreContainer" CdmEntityContainer="siixsem_wip_control_dbEntities" >
+          <FunctionImportMapping FunctionImportName="getDetailCount" FunctionName="siixsem_wip_control_dbModel.Store.getDetailCount">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="siixsem_wip_control_dbModel.getDetailCount_Result">
+                <ScalarProperty Name="ZONE" ColumnName="ZONE" />
+                <ScalarProperty Name="BOX_QTY" ColumnName="BOX_QTY" />
+                <ScalarProperty Name="MAG_QTY" ColumnName="MAG_QTY" />
+                <ScalarProperty Name="FINAL_BOX_QTY" ColumnName="FINAL_BOX_QTY" />
+                <ScalarProperty Name="DELETE_LABEL" ColumnName="DELETE_LABEL" />
+                <ScalarProperty Name="VALIDATE_QA_QTY" ColumnName="VALIDATE_QA_QTY" />
+                <ScalarProperty Name="QA_VALIDATE__" ColumnName="QA_VALIDATE %" />
+                <ScalarProperty Name="VALIDATE_FIN_QTY" ColumnName="VALIDATE_FIN_QTY" />
+                <ScalarProperty Name="FIN_VALIDATE__" ColumnName="FIN_VALIDATE %" />
+                <ScalarProperty Name="TOTAL_LABEL_PRINT" ColumnName="TOTAL_LABEL_PRINT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getDetailCountV2" FunctionName="siixsem_wip_control_dbModel.Store.getDetailCountV2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="siixsem_wip_control_dbModel.getDetailCountV2_Result">
+                <ScalarProperty Name="ZONE" ColumnName="ZONE" />
+                <ScalarProperty Name="BOX_QTY" ColumnName="BOX_QTY" />
+                <ScalarProperty Name="MAG_QTY" ColumnName="MAG_QTY" />
+                <ScalarProperty Name="FINAL_BOX_QTY" ColumnName="FINAL_BOX_QTY" />
+                <ScalarProperty Name="DELETE_LABEL" ColumnName="DELETE_LABEL" />
+                <ScalarProperty Name="DEL_BOX_LABEL" ColumnName="DEL_BOX_LABEL" />
+                <ScalarProperty Name="DEL_FG_BOX_LABEL" ColumnName="DEL_FG_BOX_LABEL" />
+                <ScalarProperty Name="VALIDATE_QA_QTY" ColumnName="VALIDATE_QA_QTY" />
+                <ScalarProperty Name="VALIDATE_QA_BOX_QTY" ColumnName="VALIDATE_QA_BOX_QTY" />
+                <ScalarProperty Name="VALIDATE_QA_FG_BOX_QTY" ColumnName="VALIDATE_QA_FG_BOX_QTY" />
+                <ScalarProperty Name="QA_VALIDATE__" ColumnName="QA_VALIDATE %" />
+                <ScalarProperty Name="QA_VALIDATE_Mag__" ColumnName="QA_VALIDATE Mag %" />
+                <ScalarProperty Name="QA_VALIDATE_Box__" ColumnName="QA_VALIDATE Box %" />
+                <ScalarProperty Name="QA_VALIDATE_FG_Box_" ColumnName="QA_VALIDATE FG Box%" />
+                <ScalarProperty Name="VALIDATE_FIN_QTY" ColumnName="VALIDATE_FIN_QTY" />
+                <ScalarProperty Name="VALIDATE_FIN__BOX_QTY" ColumnName="VALIDATE_FIN__BOX_QTY" />
+                <ScalarProperty Name="VALIDATE_FIN_FG_BOX_QTY" ColumnName="VALIDATE_FIN_FG_BOX_QTY" />
+                <ScalarProperty Name="FIN_VALIDATE__" ColumnName="FIN_VALIDATE %" />
+                <ScalarProperty Name="FIN_VALIDATE_Mag__" ColumnName="FIN_VALIDATE Mag %" />
+                <ScalarProperty Name="FIN_VALIDATE_Box__" ColumnName="FIN_VALIDATE Box %" />
+                <ScalarProperty Name="FIN_VALIDATE_FG_Box__" ColumnName="FIN_VALIDATE FG Box %" />
+                <ScalarProperty Name="TOTAL_LABEL_PRINT" ColumnName="TOTAL_LABEL_PRINT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WIP_NOT_QA_VALIDATE" FunctionName="siixsem_wip_control_dbModel.Store.WIP_NOT_QA_VALIDATE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="siixsem_wip_control_dbModel.WIP_NOT_QA_VALIDATE_Result">
+                <ScalarProperty Name="LOCATOR" ColumnName="LOCATOR" />
+                <ScalarProperty Name="MAGAZINE" ColumnName="MAGAZINE" />
+                <ScalarProperty Name="SCANNED_SERIAL" ColumnName="SCANNED_SERIAL" />
+                <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+                <ScalarProperty Name="ROUTE" ColumnName="ROUTE" />
+                <ScalarProperty Name="DJ_GROUP" ColumnName="DJ_GROUP" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="SEMIFINISH" ColumnName="SEMIFINISH" />
+                <ScalarProperty Name="REVIEW" ColumnName="REVIEW" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="QR" ColumnName="QR" />
+                <ScalarProperty Name="QUARANTINE" ColumnName="QUARANTINE" />
+                <ScalarProperty Name="VALIDATED_BY_QA" ColumnName="VALIDATED_BY_QA" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="DATE_IN" ColumnName="DATE_IN" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getDetailCountAk" FunctionName="siixsem_wip_control_dbModel.Store.getDetailCountAk">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="siixsem_wip_control_dbModel.getDetailCountAk_Result">
+                <ScalarProperty Name="ZONE" ColumnName="ZONE" />
+                <ScalarProperty Name="BOX_QTY" ColumnName="BOX_QTY" />
+                <ScalarProperty Name="MAG_QTY" ColumnName="MAG_QTY" />
+                <ScalarProperty Name="FINAL_BOX_QTY" ColumnName="FINAL_BOX_QTY" />
+                <ScalarProperty Name="DELETE_LABEL" ColumnName="DELETE_LABEL" />
+                <ScalarProperty Name="DEL_BOX_LABEL" ColumnName="DEL_BOX_LABEL" />
+                <ScalarProperty Name="DEL_FG_BOX_LABEL" ColumnName="DEL_FG_BOX_LABEL" />
+                <ScalarProperty Name="VALIDATE_QA_QTY" ColumnName="VALIDATE_QA_QTY" />
+                <ScalarProperty Name="VALIDATE_QA_BOX_QTY" ColumnName="VALIDATE_QA_BOX_QTY" />
+                <ScalarProperty Name="VALIDATE_QA_FG_BOX_QTY" ColumnName="VALIDATE_QA_FG_BOX_QTY" />
+                <ScalarProperty Name="QA_VALIDATE__" ColumnName="QA_VALIDATE %" />
+                <ScalarProperty Name="QA_VALIDATE_Mag__" ColumnName="QA_VALIDATE Mag %" />
+                <ScalarProperty Name="QA_VALIDATE_Box__" ColumnName="QA_VALIDATE Box %" />
+                <ScalarProperty Name="QA_VALIDATE_FG_Box_" ColumnName="QA_VALIDATE FG Box%" />
+                <ScalarProperty Name="VALIDATE_FIN_QTY" ColumnName="VALIDATE_FIN_QTY" />
+                <ScalarProperty Name="VALIDATE_FIN__BOX_QTY" ColumnName="VALIDATE_FIN__BOX_QTY" />
+                <ScalarProperty Name="VALIDATE_FIN_FG_BOX_QTY" ColumnName="VALIDATE_FIN_FG_BOX_QTY" />
+                <ScalarProperty Name="FIN_VALIDATE__" ColumnName="FIN_VALIDATE %" />
+                <ScalarProperty Name="FIN_VALIDATE_Mag__" ColumnName="FIN_VALIDATE Mag %" />
+                <ScalarProperty Name="FIN_VALIDATE_Box__" ColumnName="FIN_VALIDATE Box %" />
+                <ScalarProperty Name="FIN_VALIDATE_FG_Box__" ColumnName="FIN_VALIDATE FG Box %" />
+                <ScalarProperty Name="TOTAL_LABEL_PRINT" ColumnName="TOTAL_LABEL_PRINT" />
+                <ScalarProperty Name="IDAREA" ColumnName="IDAREA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
